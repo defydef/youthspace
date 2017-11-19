@@ -1,0 +1,23 @@
+{% load static %}
+
+{% for q in questions %}
+<div class="card text-center">
+	<div class="card-body">
+		<p class="text-center">
+			{{ q.description }}
+		</p>
+		<p class="text-center">
+			<img src="{{ q.q_img.url }}" alt="{{ q.description }}" height=100 width=100 />
+		</p>		
+		<div class="btn-group btn-group-justified" role="group" aria-label="Multiple options" data-toggle="buttons">
+		  <label class="btn btn-outline-primary">
+			<input type="radio" name="options" id="option1" autocomplete="off"> Me
+		  </label>
+		  <label class="btn btn-outline-primary">
+			<input type="radio" name="options" id="option2" autocomplete="off"> Not Me
+		  </label>
+		</div>
+	</div>
+</div>
+<br/>
+{% endfor %}

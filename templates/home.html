@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load happenings_tags %}
+
+{% block breadcrumb %} Youth Future {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Looking for work?</h1>
+    <h2>Prepare for a visit to an Opportunity Center</h2>
+    <p>You will be connected to a career coach for free, no matter your barriers. They will help you find the right job, connect to trainings, or locate financial resources.</p>
+</div>
+
+<div class="container-fluid">
+    <h2>Explore your career options ahead of time</h2>
+    <p>Take a quick assessment and see a list of careers that match your interests. <br> <i>(Estimated time: 2 min.)</i></p>
+
+    <a href="{% url 'assessment' %}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Start assessment</a>
+</div>
+
+<br/>
+
+<div class="alert alert-primary" role="alert">
+This is a primary alert—check it out!
+</div>
+
+<!--showing calendar from happenings app-->
+<div id="event-calendar">
+    {% autoescape off %}{% show_calendar request %}{% endautoescape %}
+<!--
+    FILTER: {{ myhtml |safe }}
+    http://docs.djangoproject.com/en/dev/ref/templates/builtins/#safe
+
+    TAG: {% autoescape off %}{{ myhtml }}{% endautoescape %} http://docs.djangoproject.com/en/dev/ref/templates/builtins/#autoescape
+-->
+</div>
+
+<!--showing events from happenings app-->
+{% upcoming_events %}
+
+{% endblock %}
+
+
+
+

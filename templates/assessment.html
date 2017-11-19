@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+	<li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+	<li class="breadcrumb-item"><a href="{% url 'assessment' %}">Assessment</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+	<div class="col-lg-8 col-md-10 col-sm-12">
+		<!-- <div class="card"> -->
+			<form method="post" enctype="multipart/form-data" novalidate>
+				{% csrf_token %}
+				{% include 'includes/jobcluster_quiz.html' %}
+			</form>
+		<!-- </div> -->
+		<div class="text-center">
+			<button type="submit" class="btn btn-primary btn-block">Start assessment</button>
+		</div>
+		<br/>
+	</div>
+</div>
+{% endblock %}
